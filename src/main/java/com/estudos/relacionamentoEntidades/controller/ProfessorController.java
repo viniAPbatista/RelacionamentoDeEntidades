@@ -1,5 +1,6 @@
 package com.estudos.relacionamentoEntidades.controller;
 
+import com.estudos.relacionamentoEntidades.dto.request.AdicionarProfessorAoCursroRequestDTO;
 import com.estudos.relacionamentoEntidades.dto.request.CadastrarProfessorRequestDTO;
 import com.estudos.relacionamentoEntidades.dto.response.CadastroProfessorResponseDTO;
 import com.estudos.relacionamentoEntidades.service.ProfessorService;
@@ -16,13 +17,18 @@ public class ProfessorController {
     private final ProfessorService professorService;
 
     @PostMapping
-    public CadastroProfessorResponseDTO cadastrarprofessor(CadastrarProfessorRequestDTO professorRequest) {
+    public CadastroProfessorResponseDTO cadastrarprofessor(@RequestBody CadastrarProfessorRequestDTO professorRequest) {
         return professorService.cadastrarProfessor(professorRequest);
     }
 
     @GetMapping("/{id}")
     public CadastroProfessorResponseDTO buscarProfessor(@PathVariable UUID id) {
         return professorService.buscarProfessor(id);
+    }
+
+    @PatchMapping
+    public CadastroProfessorResponseDTO adicionarProfessorAoCurso(@RequestBody AdicionarProfessorAoCursroRequestDTO adicionarProfessorAoCursoRequest) {
+        return professorService.adicionarProfessorAoCurso(adicionarProfessorAoCursoRequest);
     }
 
     @DeleteMapping("/{id}")

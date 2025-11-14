@@ -16,7 +16,7 @@ public class CategoriaController {
     private final CategoriaService categoriaService;
 
     @PostMapping
-    public CadastroCategoriaResponseDTO cadastrarCategoria(CadastroCategoriaRequestDTO categoriaRequest) {
+    public CadastroCategoriaResponseDTO cadastrarCategoria(@RequestBody CadastroCategoriaRequestDTO categoriaRequest) {
         return categoriaService.cadastrarCategoria(categoriaRequest);
     }
 

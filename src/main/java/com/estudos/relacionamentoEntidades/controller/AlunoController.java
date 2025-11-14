@@ -1,6 +1,7 @@
 package com.estudos.relacionamentoEntidades.controller;
 
 import com.estudos.relacionamentoEntidades.dto.request.CadastroAlunoRequestDTO;
+import com.estudos.relacionamentoEntidades.dto.request.MatricularAlunoRequestDTO;
 import com.estudos.relacionamentoEntidades.dto.response.CadastroAlunoResponseDTO;
 import com.estudos.relacionamentoEntidades.service.AlunoService;
 import lombok.RequiredArgsConstructor;
@@ -16,13 +17,18 @@ public class AlunoController {
     private final AlunoService alunoService;
 
     @PostMapping
-    public CadastroAlunoResponseDTO cadastrarAluno(CadastroAlunoRequestDTO alunoRequest) {
+    public CadastroAlunoResponseDTO cadastrarAluno(@RequestBody CadastroAlunoRequestDTO alunoRequest) {
         return alunoService.cadastrarAluno(alunoRequest);
     }
 
     @GetMapping("/{id}")
     public CadastroAlunoResponseDTO buscarAluno(@PathVariable UUID id) {
         return alunoService.buscarAluno(id);
+    }
+
+    @PatchMapping
+    public CadastroAlunoResponseDTO matricularAluno(@RequestBody MatricularAlunoRequestDTO matriculaRequest) {
+        return alunoService.matricularAluno(matriculaRequest);
     }
 
     @DeleteMapping("/{id}")

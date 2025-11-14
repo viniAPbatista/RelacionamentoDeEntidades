@@ -20,6 +20,8 @@ public class CategoriaService {
         Categoria novaCategoria = new Categoria();
         novaCategoria.setNome(categoriaRequest.nome());
 
+        categoriaRepository.save(novaCategoria);
+
         return new CadastroCategoriaResponseDTO(
                 novaCategoria.getIdCategoria(),
                 novaCategoria.getNome()
